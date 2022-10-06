@@ -1,15 +1,16 @@
+input.onButtonPressed(Button.A, function () {
+    powerbrick.MotorRun(powerbrick.Motors.M1, -103)
+    basic.pause(500)
+    powerbrick.MotorStop(powerbrick.Motors.M1)
+})
+input.onButtonPressed(Button.B, function () {
+    powerbrick.MotorRun(powerbrick.Motors.M1, 103)
+    basic.pause(500)
+    powerbrick.MotorStop(powerbrick.Motors.M1)
+})
 let s = 0
 powerbrick.GC_MODE(powerbrick.GCMode.Gesture)
-if (powerbrick.GC_Gesture() == 2) {
-    powerbrick.MotorRun(powerbrick.Motors.M1, 103)
-    basic.pause(100)
-    powerbrick.MotorStop(powerbrick.Motors.M1)
-}
-if (powerbrick.GC_Gesture() == 4) {
-    powerbrick.MotorRun(powerbrick.Motors.M1, -103)
-    basic.pause(100)
-    powerbrick.MotorStop(powerbrick.Motors.M1)
-}
+powerbrick.Servo(powerbrick.Servos.S1, 140)
 basic.forever(function () {
     s = powerbrick.GC_Gesture()
     if (s == 1) {
@@ -30,5 +31,16 @@ basic.forever(function () {
     }
 })
 basic.forever(function () {
-	
+    if (powerbrick.GC_Gesture() == 2) {
+    	
+    }
+    if (powerbrick.GC_Gesture() == 4) {
+    	
+    }
+})
+basic.forever(function () {
+    s = powerbrick.GC_Gesture()
+    if (s == 3) {
+        powerbrick.Servo(powerbrick.Servos.S1, 140)
+    }
 })
